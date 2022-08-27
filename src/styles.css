@@ -1,1 +1,68 @@
-/* You can add global styles to this file, and also import other style files */
+html,body { height:100%; }
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background: rgb(41, 63, 50);
+    background: linear-gradient(90deg, rgba(41, 63, 50, 1) 0%, rgba(22, 74, 65, 1) 35%, rgba(77, 119, 78, 1) 100%);
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+}
+.btn:focus {
+    box-shadow: 0 0 0 .25rem #bd8a37;
+}
+
+.custom-title {
+    color: #fff;
+    font-weight: bold;
+}
+
+.custom-lead {
+    margin-bottom: 0 !important;
+    color: #9dc88d;
+}
+
+.custom-bg-dark {
+    background-color: #23362b;
+}
+
+.custom-container {
+    padding: 10px;
+}
+
+.custom-btn-primary {
+    border: 3px solid transparent;
+    border-left: 0;
+    color: #fff;
+    border-color: #f1b24a;
+    background-color: #293F32;
+}
+.custom-btn-primary:hover {
+    color: #fff;
+    background-color: #f1b24a;
+}
+
+.custom-btn-secondary {
+    font-weight: 500;
+    color: #fff;
+    border: none;
+    background: none;
+}
+.custom-btn-secondary:hover {
+    color:#9dc88d;
+}
+
+.form-select:focus {
+    border-color: #4d774e;
+    box-shadow: 0 0 0 .25rem #4d774e;
+}
+
+.custom-table {
+    padding: 10px;
+    border-radius: 10px;
+}
+
+th { font-weight:600;color:#9dc88d; }

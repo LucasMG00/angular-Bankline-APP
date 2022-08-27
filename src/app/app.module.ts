@@ -13,6 +13,8 @@ import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import { CurrencyMaskModule } from "ng2-currency-mask";
 import { CorrentistaComponent } from './components/correntista/correntista.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
 
 registerLocaleData(localePt);
 
@@ -29,7 +31,9 @@ registerLocaleData(localePt);
     NgbModule,
     FormsModule,
     HttpClientModule,
-    CurrencyMaskModule
+    CurrencyMaskModule,
+    BrowserAnimationsModule,
+    MatIconModule
   ],
   providers: [{provide: LOCALE_ID, useValue: 'pt-BR'}],
   bootstrap: [AppComponent]
