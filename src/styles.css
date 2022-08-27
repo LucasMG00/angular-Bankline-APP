@@ -18,19 +18,27 @@ body {
 .custom-title {
     color: #fff;
     font-weight: bold;
+    cursor: default;
 }
 
 .custom-lead {
     margin-bottom: 0 !important;
     color: #9dc88d;
+    cursor: default;
 }
 
 .custom-bg-dark {
     background-color: #23362b;
 }
 
+.custom-bg-light-gradient {
+    background: rgb(41, 63, 50);
+    background: linear-gradient(90deg, #DAEECB 0%, #A4C189 35%, #A4C189 100%);
+}
+
 .custom-container {
     padding: 10px;
+    border-bottom: 1px solid #4d774e;
 }
 
 .custom-btn-primary {
@@ -55,6 +63,13 @@ body {
     color:#9dc88d;
 }
 
+.custom-btn-secondary:hover mat-icon {
+    color: #f1b24a;
+}
+
+.form-select {
+    background-color: #A4C189;
+}
 .form-select:focus {
     border-color: #4d774e;
     box-shadow: 0 0 0 .25rem #4d774e;
@@ -65,4 +80,4 @@ body {
     border-radius: 10px;
 }
 
-th { font-weight:600;color:#9dc88d; }
+th { font-weight:600; color:#bd8a37; cursor:default; }
