@@ -1,41 +1,48 @@
-<div class="container">
-    <div class="jumbotron">
-        <h1 class="display-6">Movimentação</h1>
-        <p class="lead-1">Inclusão de uma nova movimentação</p>
-        <hr class="my-2">
-        
-        
-            <div class="col-md-3">
-              <label for="iData" class="form-label">Data</label>
-              <input type="date" [(ngModel)]="dataHora" class="form-control" id="iData">
-            </div>
-            <div class="col-md-9">
-              <label for="iCorrentista" class="form-label">Correntista</label>
-              <select id="iCorrentista" [(ngModel)]="correntista" class="form-select">
-                <option *ngFor="let c of correntistas" [ngValue]="c">{{c.cpf}} - {{c.nome}}</option>
-              </select>
-            </div>
-            <div class="col-12">
-              <label for="iDescricao" class="form-label">Descrição</label>
-              <input type="text" [(ngModel)]="descricao" class="form-control" id="iDescricao" placeholder="Informe uma descrição">
-            </div>
-            <div class="col-md-3">
-              <label for="iTipo" class="form-label">Tipo Movimentação</label>
-              <select id="iTipo" [(ngModel)]="tipo"class="form-select">
-                <option selected>RECEITA</option>
-                <option>DESPESA</option>
-              </select>
-            </div>
-            <div class="col-md-2">
-              <label for="iValor" class="form-label">R$ Valor</label>
-              <input type="text" [(ngModel)]="valor" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" class="form-control" id="iValor">
-            </div>
-            <div class="d-grid gap-2 d-md-flex ">
-                <button class="btn btn-outline-primary me-md-2" (click)="save()" type="button">Confirmar</button>
-                <a routerLink="/movimentacoes" class="btn btn-outline-secondary">Voltar</a>
-              </div>
-         
-      </div>
+<div class="jumbotron">
+  <div class="custom-container custom-bg-dark">
+    <h1 class="display-6 custom-title"><mat-icon>playlist_add</mat-icon> Nova Movimentação</h1>
+    <p class="lead-1 custom-lead">Inclusão de uma nova movimentação</p>
+  </div>
+
+  <div class="container">
+    <div class="col-md-3 my-4">
+      <label for="iData" class="form-label text-white">Data</label>
+      <input type="date" [(ngModel)]="dataHora" class="form-control" id="iData">
+    </div>
+    <div class="col-md-9 my-4">
+      <label for="iCorrentista" class="form-label text-white">Correntista</label>
+      <select id="iCorrentista" [(ngModel)]="correntista" class="form-select">
+        <option *ngFor="let c of correntistas" [ngValue]="c">{{c.cpf}} - {{c.nome}}</option>
+      </select>
+    </div>
+    <div class="col-12 my-4">
+      <label for="iDescricao" class="form-label text-white">Descrição</label>
+      <input type="text" [(ngModel)]="descricao" class="form-control" id="iDescricao"
+        placeholder="Informe uma descrição">
+    </div>
+    <div class="col-md-3 my-4">
+      <label for="iTipo" class="form-label text-white">Tipo Movimentação</label>
+      <select id="iTipo" [(ngModel)]="tipo" class="form-select">
+        <option selected style="color:blue">RECEITA</option>
+        <option style="color:red">DESPESA</option>
+      </select>
+    </div>
+    <div class="col-md-2 my-4">
+      <label for="iValor" class="form-label text-white">R$ Valor</label>
+      <input type="text" [(ngModel)]="valor" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+        class="form-control" id="iValor">
+    </div>
+    <div class="d-grid gap-2 d-md-flex" style="float:right">
+      <button class="btn btn-primary me-md-2" (click)="save()" (click)="showSuccess(addTpl)" type="button"><mat-icon>playlist_add</mat-icon>&nbsp;Confirmar</button>
+      <a routerLink="/movimentacoes" class="btn btn-danger"><mat-icon>settings_backup_restore</mat-icon>&nbsp;Voltar</a>
+    </div>
+
+  </div>
 
 </div>
 
+<app-toast aria-live="polite" aria-atomic="true"></app-toast>
+
+<ng-template #addTpl>
+    <h6 style="color:#fff"><mat-icon>playlist_add</mat-icon> Movimentação criada!</h6>
+</ng-template>

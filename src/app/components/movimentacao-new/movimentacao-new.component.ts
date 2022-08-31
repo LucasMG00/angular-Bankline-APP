@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, TemplateRef } from '@angular/core';
 import { CorrentistaService } from 'src/app/services/correntista.service';
 import { MovimentacaoService } from 'src/app/services/movimentacao.service';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-movimentacao-new',
   templateUrl: './movimentacao-new.component.html',
   styleUrls: ['./movimentacao-new.component.css']
 })
-export class MovimentacaoNewComponent implements OnInit {
+export class MovimentacaoNewComponent implements OnInit, OnDestroy {
   correntistas:any;
   correntista:any;
   valor:any;
@@ -18,6 +19,7 @@ export class MovimentacaoNewComponent implements OnInit {
   constructor(
     private movimentacaoService: MovimentacaoService,
     private correntistaService: CorrentistaService,
+    public toastService: ToastService
     ) { }
 
   ngOnInit(): void {
@@ -55,4 +57,11 @@ export class MovimentacaoNewComponent implements OnInit {
         });
   }
 
+  ngOnDestroy(): void {
+    this.toastService.clear();
+  }
+
+  showSuccess(addTpl: string | TemplateRef<any>) {
+    this.toastService.show(addTpl, { classname: 'bg-success text-light', delay: 5000 });
+  }
 }

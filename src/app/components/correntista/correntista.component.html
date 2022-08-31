@@ -1,29 +1,42 @@
-<div class="container">
+<div class="custom-container custom-bg-dark">
   <div class="jumbotron">
-    <h1 class="display-6">Correntistas</h1>
-    <p class="lead-1">Cadastro de correntista</p>
-    <hr class="my-2">
+    <h1 class="display-6 custom-title">
+      <mat-icon>person</mat-icon> Correntistas
+    </h1>
+    <p class="lead-1 custom-lead">Cadastro de correntista</p>
   </div>
-  <div class="row g-2">
+</div>
+<div class="container">
+  <div class="row g-2 my-3">
     <div class="col-md-3">
-      <input  class="form-control" id="iCpf" [(ngModel)]="cpf"  placeholder="CPF">
+      <input class="form-control" id="iCpf" [(ngModel)]="cpf" placeholder="CPF">
     </div>
     <div class="col-5">
-      <input type="text"  class="form-control" id="iNome" [(ngModel)]="nome" placeholder="Nome do Correntista">
+      <input type="text" class="form-control" id="iNome" [(ngModel)]="nome" placeholder="Nome do Correntista">
     </div>
     <div class="col-3">
-    <div class="d-grid gap-2 d-md-flex ">
-        <button class="btn btn-outline-primary me-md-2" type="button" (click)="save()" >Gravar</button>
-        <a routerLink="/movimentacoes" class="btn btn-outline-danger">Voltar</a>
+      <div class="d-grid gap-2 d-md-flex ">
+        <button class="btn btn-primary me-md-2" type="button" (click)="save()" (click)="showSuccess(addTpl)">
+          <mat-icon>person_add</mat-icon>&nbsp;Gravar
+        </button>
+        <a routerLink="/movimentacoes" class="btn btn-danger">
+          <mat-icon>settings_backup_restore</mat-icon>&nbsp;Voltar
+        </a>
       </div>
     </div>
   </div>
   <p></p>
-  <div *ngFor="let item of correntistas; index as i" class="card" style="width: 18rem;">
-    <div class="card-body">
+  <div *ngFor="let item of correntistas; index as i" class="card mx-2 my-3" style="width: 18rem;">
+    <div class="card-body custom-bg-dark text-white" style="cursor:default">
       <h5 class="card-title">{{item.nome}}</h5>
-      <p class="card-text">Conta N° {{item.conta.numero}}</p>
+      <p class="card-subtitle mb-2 custom-lead">Conta N° {{item.conta.numero}}</p>
       <p class="card-text">Saldo {{item.conta.saldo | currency:'BRL'}}</p>
     </div>
   </div>
 </div>
+
+<app-toast aria-live="polite" aria-atomic="true"></app-toast>
+
+<ng-template #addTpl>
+    <h6 style="color:#fff"><mat-icon>person_add</mat-icon> Correntista adicionado!</h6>
+</ng-template>

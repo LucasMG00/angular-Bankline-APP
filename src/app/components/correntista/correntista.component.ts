@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, TemplateRef } from '@angular/core';
 import { CorrentistaService } from 'src/app/services/correntista.service';
+import { ToastService } from 'src/app/services/toast.service';
 
 
 @Component({
@@ -7,13 +8,14 @@ import { CorrentistaService } from 'src/app/services/correntista.service';
   templateUrl: './correntista.component.html',
   styleUrls: ['./correntista.component.css']
 })
-export class CorrentistaComponent implements OnInit {
-  correntistas:any;
-  cpf:any;
-  nome:any;
+export class CorrentistaComponent implements OnInit, OnDestroy {
+  correntistas: any;
+  cpf: any;
+  nome: any;
   constructor(
-    private correntistaService: CorrentistaService,
-    ) { }
+    private correntistaService: CorrentistaService, 
+    public toastService: ToastService,
+  ) { }
   ngOnInit(): void {
     this.exibirCorrentistas();
   }
@@ -30,8 +32,8 @@ export class CorrentistaComponent implements OnInit {
   }
   save(): void {
     const correntista = {
-      cpf:this.cpf,
-      nome:this.nome
+      cpf: this.cpf,
+      nome: this.nome
     };
     console.log(correntista);
     this.correntistaService.create(correntista)
@@ -43,5 +45,13 @@ export class CorrentistaComponent implements OnInit {
         error => {
           console.log(error);
         });
+  }
+
+  ngOnDestroy(): void {
+    this.toastService.clear();
+  }
+
+  showSuccess(addTpl: string | TemplateRef<any>) {
+    this.toastService.show(addTpl, { classname: 'bg-success text-light', delay: 5000 });
   }
 }
