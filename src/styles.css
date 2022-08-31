@@ -1,3 +1,4 @@
+/* HTML default tags style */
 html,body { height:100%; }
 
 body {
@@ -7,12 +8,16 @@ body {
     background: linear-gradient(90deg, rgba(41, 63, 50, 1) 0%, rgba(22, 74, 65, 1) 35%, rgba(77, 119, 78, 1) 100%);
 }
 
-.btn {
-    display: flex;
-    align-items: center;
-}
-.btn:focus {
-    box-shadow: 0 0 0 .25rem #bd8a37;
+th { font-weight:600; color:#bd8a37; cursor:default; }
+
+/* Custom style */
+.custom-bg-dark { background-color: #23362b; }
+
+.custom-bg-light { background-color: #A4C189; }
+
+.custom-bg-light-gradient {
+    background: rgb(41, 63, 50);
+    background: linear-gradient(90deg, #DAEECB 0%, #A4C189 35%, #A4C189 100%);
 }
 
 .custom-title {
@@ -25,15 +30,6 @@ body {
     margin-bottom: 0 !important;
     color: #9dc88d;
     cursor: default;
-}
-
-.custom-bg-dark {
-    background-color: #23362b;
-}
-
-.custom-bg-light-gradient {
-    background: rgb(41, 63, 50);
-    background: linear-gradient(90deg, #DAEECB 0%, #A4C189 35%, #A4C189 100%);
 }
 
 .custom-container {
@@ -67,7 +63,24 @@ body {
     color: #f1b24a;
 }
 
+.custom-table {
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* Bootstrap CSS style */
+.text-white { font-weight: 500; }
+
+.btn {
+    display: flex;
+    align-items: center;
+}
+.btn:focus {
+    box-shadow: 0 0 0 .25rem #bd8a37;
+}
+
 .form-select {
+    cursor: pointer;
     background-color: #A4C189;
 }
 .form-select:focus {
@@ -84,11 +97,9 @@ body {
     box-shadow: 0 0 0 .25rem #4d774e;
 }
 
-.custom-table {
-    padding: 10px;
-    border-radius: 10px;
+.input-group-text {
+    height: 100%;
+    color: #f1b24a;
+    background-color: #293F32;
+    border-radius: 0.25rem 0 0 0.25rem;
 }
-
-th { font-weight:600; color:#bd8a37; cursor:default; }
-
-.text-white { font-weight: 500; }

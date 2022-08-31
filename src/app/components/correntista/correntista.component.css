@@ -14,3 +14,11 @@
     /* Microsoft Edge */
     color: #23362b;
 }
+
+.card { background-color:#A4C189; }
+
+.card-body {
+    cursor: default;
+    border-radius: 5px;
+    border: 1px solid #A4C189;
+}
